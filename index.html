@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web App Clone</title>
+    <title>IDV88 Clone</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background-color: #0c0c0c; color: white; padding-bottom: 80px; }
+        /* CSS RESET & BASE */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { background-color: #1a1a1a; color: white; padding-bottom: 70px; }
 
         /* HEADER */
         header {
@@ -18,87 +19,81 @@
             padding: 10px 15px;
             border-bottom: 2px solid #333;
         }
-        .main-logo { height: 40px; width: auto; object-fit: contain; }
-        .user-header-info { font-size: 11px; text-align: right; line-height: 1.2; }
-        .user-header-info b { color: #ff0000; }
+        /* Style untuk Logo Baru */
+        .logo-img {
+            height: 35px;
+            width: auto;
+            display: block;
+        }
+        .user-info { font-size: 12px; text-align: right; }
+        .user-info span { color: #ff0000; font-weight: bold; }
 
-        /* MARQUEE */
-        .marquee-box {
+        /* RUNNING TEXT */
+        .marquee {
             background: #000;
             color: #fff;
-            padding: 6px;
-            font-size: 12px;
+            padding: 5px;
+            font-size: 13px;
             border-bottom: 1px solid #444;
-            display: flex;
-            align-items: center;
         }
-        .marquee-box i { margin-right: 8px; font-size: 16px; }
 
-        /* SPIN AREA */
-        .spin-container {
-            background: linear-gradient(90deg, #cc0000 0%, #800000 100%);
+        /* BANNER SECTION */
+        .banner-container { width: 100%; position: relative; }
+        .banner-img { width: 100%; display: block; }
+        
+        .spin-button {
+            background: #cc0000;
             display: flex;
             align-items: center;
-            padding: 12px;
+            padding: 10px;
             margin: 10px;
             border-radius: 8px;
             font-weight: bold;
-            font-style: italic;
         }
-        .spin-icon { width: 45px; height: 45px; margin-right: 15px; }
 
-        /* BANNER */
-        .banner-box { width: 100%; margin-bottom: 15px; }
-        .banner-box img { width: 100%; display: block; }
-
-        /* PROFILE SECTION */
+        /* PROFILE CARD */
         .profile-card {
-            background: #1a1a1a;
-            margin: 10px;
+            background: #222;
+            margin: 15px;
             padding: 15px;
-            border-radius: 12px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
-            border: 1px solid #333;
+            gap: 15px;
         }
-        .user-photo { 
-            width: 65px; 
-            height: 65px; 
+        /* Style untuk Foto Profil Baru */
+        .avatar-img { 
+            width: 60px; 
+            height: 60px; 
             border-radius: 50%; 
-            border: 3px solid #cc0000;
-            object-fit: cover;
-            margin-right: 15px;
+            border: 3px solid #cc0000; 
+            object-fit: cover; 
         }
-        .user-data { flex-grow: 1; }
-        .user-data h4 { margin-bottom: 4px; font-size: 16px; }
-        .user-data p { color: #bbb; font-size: 14px; }
-
-        .btn-group { display: flex; flex-direction: column; gap: 8px; }
+        .user-details { flex-grow: 1; }
+        .action-buttons { display: flex; flex-direction: column; gap: 5px; }
         .btn {
             border: none;
-            padding: 8px 18px;
-            border-radius: 6px;
+            padding: 8px 20px;
+            border-radius: 5px;
             font-weight: bold;
-            font-size: 12px;
             cursor: pointer;
-            width: 110px;
+            text-align: center;
         }
-        .btn-yellow { background: #ffcc00; color: #000; }
-        .btn-red { background: #cc0000; color: #fff; }
+        .btn-deposit { background: #ffcc00; color: #000; }
+        .btn-transaksi { background: #cc0000; color: #fff; }
 
         /* GAME GRID */
-        .member-count { background: #cc0000; text-align: center; padding: 6px; font-size: 13px; font-weight: bold; }
-        .game-title { background: #222; padding: 10px 15px; font-weight: bold; border-left: 5px solid #cc0000; }
-        .game-menu {
+        .game-section { background: #cc0000; padding: 10px; margin-top: 20px; }
+        .game-nav {
             display: flex;
             justify-content: space-around;
-            background: #000;
-            padding: 20px 0;
+            background: #111;
+            padding: 15px 5px;
         }
-        .game-slot { text-align: center; color: #aaa; font-size: 11px; }
-        .game-slot i { font-size: 28px; display: block; margin-bottom: 8px; color: #fff; }
+        .game-item { text-align: center; font-size: 11px; color: #ccc; }
+        .game-item i { font-size: 24px; display: block; margin-bottom: 5px; color: white; }
 
-        /* BOTTOM NAV */
+        /* BOTTOM NAVIGATION */
         .bottom-nav {
             position: fixed;
             bottom: 0;
@@ -106,66 +101,84 @@
             background: #cc0000;
             display: flex;
             justify-content: space-around;
-            padding: 12px 0;
-            border-radius: 15px 15px 0 0;
+            padding: 10px 0;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
         }
-        .nav-link { text-align: center; color: white; text-decoration: none; font-size: 10px; font-weight: bold; }
-        .nav-link i { font-size: 20px; display: block; margin-bottom: 4px; }
+        .nav-item { text-align: center; color: white; text-decoration: none; font-size: 10px; }
+        .nav-item i { font-size: 20px; display: block; margin-bottom: 3px; }
+
+        .member-online {
+            background: #cc0000;
+            text-align: center;
+            padding: 5px;
+            font-size: 12px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <div style="font-size: 22px;"><i class="fas fa-bars"></i></div>
-        <img src="logo.jpg" alt="Logo" class="main-logo">
-        <div class="user-header-info">
-            <i class="fas fa-wallet" style="color:#ffcc00"></i> jimipermana<br>
-            <b>0 IDR</b>
+        <div style="color: #cc0000; font-size: 24px;"><i class="fas fa-bars"></i></div>
+        <img src="logo.jpg" alt="Logo" class="logo-img">
+        
+        <div class="user-info">
+            <i class="fas fa-user-circle"></i> jimipermana<br>
+            <span>0 IDR</span>
         </div>
     </header>
 
-    <div class="marquee-box">
-        <i class="fas fa-volume-up"></i>
-        <marquee>Selamat datang di IDV88 - Deposit via Bank & E-Wallet Bonus 5% Setiap Hari!</marquee>
+    <div class="marquee">
+        <marquee>Mohon maaf untuk saat ini deposit QRIS sedang dalam gangguan...</marquee>
     </div>
 
-    <div class="spin-container">
-        <img src="https://cdn-icons-png.flaticon.com/512/3567/3567005.png" class="spin-icon" alt="Spin">
+    <div class="spin-button">
+        <div style="width: 40px; height: 40px; background: #fff; border-radius: 50%; margin-right: 10px;"></div>
         SPIN HARIAN
     </div>
 
-    <div class="banner-box">
-        <img src="https://via.placeholder.com/600x300/222/fff?text=BANNER+PROMO+DISINI" alt="Promo">
+    <div class="banner-container">
+        <img src="Baner.jpg" alt="Banner">
     </div>
 
     <div class="profile-card">
-        <img src="foto.jpg" alt="Profile" class="user-photo">
-        <div class="user-data">
-            <h4>jimipermana</h4>
-            <p>0 IDR</p>
+        <img src="profil.jpg" alt="User" class="avatar-img">
+        
+        <div class="user-details">
+            <b>NIKO</b><br>
+            <small>0 IDR</small>
         </div>
-        <div class="btn-group">
-            <button class="btn btn-yellow">DEPOSIT</button>
-            <button class="btn btn-red">TRANSAKSI</button>
+        <div class="action-buttons">
+            <button class="btn btn-deposit">DEPOSIT</button>
+            <button class="btn btn-transaksi">TRANSAKSI</button>
         </div>
     </div>
 
-    <div class="member-count">MEMBER ONLINE: 1130</div>
+    <div class="member-online">MEMBER ONLINE: 1130</div>
 
-    <div class="game-title">GAME</div>
-    <div class="game-menu">
-        <div class="game-slot"><i class="fas fa-fish"></i>TEMBAK IKAN</div>
-        <div class="game-slot"><i class="fas fa-gamepad"></i>OTHERS</div>
-        <div class="game-slot"><i class="fas fa-futbol"></i>SPORTS</div>
+    <div class="game-section">GAME</div>
+    <div class="game-nav">
+        <div class="game-item"><i class="fas fa-fish"></i>TEMBAK IKAN</div>
+        <div class="game-item"><i class="fas fa-gamepad"></i>OTHERS</div>
+        <div class="game-item"><i class="fas fa-futbol"></i>SPORTS</div>
     </div>
 
     <nav class="bottom-nav">
-        <a href="#" class="nav-link"><i class="fas fa-home"></i>HOME</a>
-        <a href="#" class="nav-link"><i class="fas fa-gift"></i>BONUS</a>
-        <a href="#" class="nav-link"><i class="fas fa-exchange-alt"></i>SALDO</a>
-        <a href="#" class="nav-link"><i class="fas fa-percentage"></i>PROMOSI</a>
-        <a href="#" class="nav-link"><i class="fas fa-comments"></i>LIVE CHAT</a>
+        <a href="#" class="nav-item"><i class="fas fa-home"></i>HOME</a>
+        <a href="#" class="nav-item"><i class="fas fa-gift"></i>BONUS</a>
+        <a href="#" class="nav-item"><i class="fas fa-exchange-alt"></i>SALDO</a>
+        <a href="#" class="nav-item"><i class="fas fa-percentage"></i>PROMOSI</a>
+        <a href="#" class="nav-item"><i class="fas fa-comments"></i>LIVE CHAT</a>
     </nav>
 
+    <script>
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('click', function() {
+                alert('Fitur ' + this.innerText + ' akan segera hadir!');
+            });
+        });
+    </script>
 </body>
-    </html>
+                                         </html>

@@ -19,13 +19,11 @@
             padding: 10px 15px;
             border-bottom: 2px solid #333;
         }
-        .logo-placeholder {
-            background: #fff;
-            color: #000;
-            padding: 5px 15px;
-            font-weight: bold;
-            font-style: italic;
-            border-radius: 4px;
+        /* Style untuk Logo Baru */
+        .logo-img {
+            height: 35px;
+            width: auto;
+            display: block;
         }
         .user-info { font-size: 12px; text-align: right; }
         .user-info span { color: #ff0000; font-weight: bold; }
@@ -63,7 +61,14 @@
             align-items: center;
             gap: 15px;
         }
-        .avatar { width: 60px; height: 60px; background: #fff; border-radius: 50%; border: 3px solid #cc0000; }
+        /* Style untuk Foto Profil Baru */
+        .avatar-img { 
+            width: 60px; 
+            height: 60px; 
+            border-radius: 50%; 
+            border: 3px solid #cc0000; 
+            object-fit: cover; 
+        }
         .user-details { flex-grow: 1; }
         .action-buttons { display: flex; flex-direction: column; gap: 5px; }
         .btn {
@@ -117,9 +122,10 @@
 
     <header>
         <div style="color: #cc0000; font-size: 24px;"><i class="fas fa-bars"></i></div>
-        <div class="logo-placeholder"></div>
+        <img src="logo.jpg" alt="Logo" class="logo-img">
+        
         <div class="user-info">
-            <i class="fas fa-user-circle"></i> NIKO<br>
+            <i class="fas fa-user-circle"></i> jimipermana<br>
             <span>0 IDR</span>
         </div>
     </header>
@@ -134,13 +140,14 @@
     </div>
 
     <div class="banner-container">
-        <img src="baner.jpg" class="banner-ig" alt="Banner">
+        <img src="Baner.jpg" alt="Banner">
     </div>
 
     <div class="profile-card">
-        <div class="avatar"src=logo.jpg></div>
+        <img src="profil.jpg" alt="User" class="avatar-img">
+        
         <div class="user-details">
-            <b>jimipermana</b><br>
+            <b>NIKO</b><br>
             <small>0 IDR</small>
         </div>
         <div class="action-buttons">
@@ -167,14 +174,11 @@
     </nav>
 
     <script>
-        // JS untuk interaksi sederhana
         document.querySelectorAll('.btn').forEach(button => {
             button.addEventListener('click', function() {
                 alert('Fitur ' + this.innerText + ' akan segera hadir!');
             });
         });
-
-        console.log("Web IDV88 Clone Berhasil Dimuat");
     </script>
 </body>
-    </html>
+                                                                                    </html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDV88 Clone</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* CSS RESET & BASE */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { background-color: #1a1a1a; color: white; padding-bottom: 70px; }
+
+        /* HEADER */
+        header {
+            background: #000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            border-bottom: 2px solid #333;
+        }
+        .logo-placeholder {
+            background: #fff;
+            color: #000;
+            padding: 5px 15px;
+            font-weight: bold;
+            font-style: italic;
+            border-radius: 4px;
+        }
+        .user-info { font-size: 12px; text-align: right; }
+        .user-info span { color: #ff0000; font-weight: bold; }
+
+        /* RUNNING TEXT */
+        .marquee {
+            background: #000;
+            color: #fff;
+            padding: 5px;
+            font-size: 13px;
+            border-bottom: 1px solid #444;
+        }
+
+        /* BANNER SECTION */
+        .banner-container { width: 100%; position: relative; }
+        .banner-img { width: 100%; display: block; }
+        
+        .spin-button {
+            background: #cc0000;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        /* PROFILE CARD */
+        .profile-card {
+            background: #222;
+            margin: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .avatar { width: 60px; height: 60px; background: #fff; border-radius: 50%; border: 3px solid #cc0000; }
+        .user-details { flex-grow: 1; }
+        .action-buttons { display: flex; flex-direction: column; gap: 5px; }
+        .btn {
+            border: none;
+            padding: 8px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+        }
+        .btn-deposit { background: #ffcc00; color: #000; }
+        .btn-transaksi { background: #cc0000; color: #fff; }
+
+        /* GAME GRID */
+        .game-section { background: #cc0000; padding: 10px; margin-top: 20px; }
+        .game-nav {
+            display: flex;
+            justify-content: space-around;
+            background: #111;
+            padding: 15px 5px;
+        }
+        .game-item { text-align: center; font-size: 11px; color: #ccc; }
+        .game-item i { font-size: 24px; display: block; margin-bottom: 5px; color: white; }
+
+        /* BOTTOM NAVIGATION */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: #cc0000;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+        .nav-item { text-align: center; color: white; text-decoration: none; font-size: 10px; }
+        .nav-item i { font-size: 20px; display: block; margin-bottom: 3px; }
+
+        .member-online {
+            background: #cc0000;
+            text-align: center;
+            padding: 5px;
+            font-size: 12px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div style="color: #cc0000; font-size: 24px;"><i class="fas fa-bars"></i></div>
+        <div class="logo-placeholder">LOGO ANDA DI SINI</div>
+        <div class="user-info">
+            <i class="fas fa-user-circle"></i> jimipermana<br>
+            <span>0 IDR</span>
+        </div>
+    </header>
+
+    <div class="marquee">
+        <marquee>Mohon maaf untuk saat ini deposit QRIS sedang dalam gangguan...</marquee>
+    </div>
+
+    <div class="spin-button">
+        <div style="width: 40px; height: 40px; background: #fff; border-radius: 50%; margin-right: 10px;"></div>
+        SPIN HARIAN
+    </div>
+
+    <div class="banner-container">
+        <img src="https://via.placeholder.com/500x250/800000/FFFFFF?text=BONUS+DEPOSIT+HARIAN+5%" class="banner-img" alt="Banner">
+    </div>
+
+    <div class="profile-card">
+        <div class="avatar"></div>
+        <div class="user-details">
+            <b>jimipermana</b><br>
+            <small>0 IDR</small>
+        </div>
+        <div class="action-buttons">
+            <button class="btn btn-deposit">DEPOSIT</button>
+            <button class="btn btn-transaksi">TRANSAKSI</button>
+        </div>
+    </div>
+
+    <div class="member-online">MEMBER ONLINE: 1130</div>
+
+    <div class="game-section">GAME</div>
+    <div class="game-nav">
+        <div class="game-item"><i class="fas fa-fish"></i>TEMBAK IKAN</div>
+        <div class="game-item"><i class="fas fa-gamepad"></i>OTHERS</div>
+        <div class="game-item"><i class="fas fa-futbol"></i>SPORTS</div>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="#" class="nav-item"><i class="fas fa-home"></i>HOME</a>
+        <a href="#" class="nav-item"><i class="fas fa-gift"></i>BONUS</a>
+        <a href="#" class="nav-item"><i class="fas fa-exchange-alt"></i>SALDO</a>
+        <a href="#" class="nav-item"><i class="fas fa-percentage"></i>PROMOSI</a>
+        <a href="#" class="nav-item"><i class="fas fa-comments"></i>LIVE CHAT</a>
+    </nav>
+
+    <script>
+        // JS untuk interaksi sederhana
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('click', function() {
+                alert('Fitur ' + this.innerText + ' akan segera hadir!');
+            });
+        });
+
+        console.log("Web IDV88 Clone Berhasil Dimuat");
+    </script>
+</body>
+</html>
